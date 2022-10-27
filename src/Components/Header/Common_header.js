@@ -45,7 +45,7 @@ const Common_header = () => {
     return (
         <>
             {loginData == "" ?
-                <Grid container item
+                <Grid container 
                     className={"header"} sx={{
                         backgroundColor: '#040c12'
                     }} >
@@ -61,7 +61,7 @@ const Common_header = () => {
                     </Grid>
                 </Grid>
                 :
-                <Grid container item
+                <Grid container 
                     className={"header"} sx={{
                         backgroundColor: '#040c12'
                     }} >
@@ -77,12 +77,9 @@ const Common_header = () => {
 
                     </Grid>
                     <Grid item md={4}
-                        container
-                        direction="row"
-                        justifyContent="end"
-                        alignItems="end"
+                   
                     >
-                        <Button onClick={logout} variant="contained" className='logout'>Logout</Button>
+                        <Button onClick={logout} variant="contained" className='logout' mt={3}>Logout</Button>
 
                     </Grid>
                 </Grid>

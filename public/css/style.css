@@ -54,6 +54,7 @@ button.logout:hover {
     padding: 15px;
     color: #fff;
     padding: 10px;
+    justify-content: space-between;
 }
 .header img {
     max-width: 60px;

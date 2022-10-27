@@ -12,7 +12,7 @@ const MainHeader = (props) => {
     }
     return (
         <>
-              <Grid container item   className={"header"} sx={{
+              <Grid container    className={"header"} sx={{
                         backgroundColor: '#040c12'
                     }}>
                     <Grid item md={8} display={"flex"} >
@@ -21,8 +21,8 @@ const MainHeader = (props) => {
                             Little Lambo
                         </Typography>
                     </Grid>
-                    <Grid item md={4} mt={1}>
-                        <SideHeader  sideBarFunCall={siderBarFun}/>
+                    <Grid item md={3} mt={1} style={{justifyContent:'end'}}>
+                        <SideHeader  sideBarFunCall={siderBarFun} />
                     </Grid>
                 </Grid>
                 </>
