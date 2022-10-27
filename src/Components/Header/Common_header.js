@@ -49,7 +49,7 @@ const Common_header = () => {
                     className={"header"} sx={{
                         backgroundColor: '#040c12'
                     }} >
-                    <Grid item md={6} >
+                    <Grid item md={8} >
                         <Box sx={{
                            display:'flex'
                         }}>
@@ -65,7 +65,7 @@ const Common_header = () => {
                     className={"header"} sx={{
                         backgroundColor: '#040c12'
                     }} >
-                    <Grid item md={6} >
+                    <Grid item md={8} >
                     <Box sx={{
                            display:'flex'
                         }}>
@@ -76,7 +76,7 @@ const Common_header = () => {
                         </Box>
 
                     </Grid>
-                    <Grid item md={6}
+                    <Grid item md={4}
                         container
                         direction="row"
                         justifyContent="end"

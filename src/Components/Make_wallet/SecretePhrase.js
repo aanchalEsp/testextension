@@ -88,10 +88,8 @@ const SecretPhrase = () => {
             <Container >
                 <Toaster />
                 <Grid container item xs={12} my={3} className="import-wallet" >
-                    <Grid item md={1}></Grid>
-                    <Grid item md={10}>
                         <Grid item container>
-                            <Grid item md={6}>
+                            <Grid item md={12}>
                                 <Typography variant="h3" component="h3">
                                     Secret Recovery Phrase
                                 </Typography>
@@ -141,8 +139,7 @@ const SecretPhrase = () => {
                                     </Grid>
                                 </Grid>
                             </Grid>
-                            <Grid item md={1} ></Grid>
-                            <Grid item md={5} >
+                            <Grid item md={12} >
                                 <Typography sx={{ fontSize: 17, margin: "20px 0" }} gutterBottom>
                                     Tips:
                                 </Typography>
@@ -162,8 +159,6 @@ const SecretPhrase = () => {
                                 </Typography>
                             </Grid>
                         </Grid>
-                    </Grid>
-                    <Grid item md={1}></Grid>
                 </Grid>
             </Container>
 

@@ -149,23 +149,14 @@ const ConfirmPhrase = () => {
             <Toaster />
 
                 <Grid container item xs={12} my={3} className="import-wallet" >
-                    <Grid item md={1}></Grid>
-                    <Grid item md={10}>
                         <Grid item container>
-                            <Grid item md={9}>
+                            <Grid item md={12}>
                                 <Typography variant="h3" component="h3">
                                     Confirm your Secret Recovery Phrase
                                 </Typography>
                                 <Typography sx={{ fontSize: 16, margin: "20px 0" }} gutterBottom>
                                     Please select each phrase in order to make sure it is correct.
                                 </Typography>
-                                {/* <TextareaAutosize
-                                    maxRows={20}
-                                    aria-label="maximum height"
-                                    placeholder="Select correct phrase from below words"
-                                    value={phrase.value}
-                                    style={{ width: 550, height: 250 }}
-                                /> */}
                                 <Grid container item>
                                     <Box
                                         sx={{
@@ -178,7 +169,7 @@ const ConfirmPhrase = () => {
                                         <Grid item container spacing={2} p={2} className="confirm-phrase">
                                             
                                             {selectedArr.map((dd) => (
-                                                <Grid item md={2} xs={4}>
+                                                <Grid item md={3} xs={4}>
                                                     <Button variant="contained" onClick={() => removeSeedPhars(dd)}>
                                                         {dd.split('-')[0]}
                                                         <span>x</span>
@@ -191,7 +182,7 @@ const ConfirmPhrase = () => {
                                 <Grid item container spacing={2} my={2} className="c-phrase">
 
                                     {randomPuzzule.map((item, index) => (
-                                        <Grid item md={2} xs={4}>
+                                        <Grid item md={3} xs={4}>
                                             <TextField
                                                 id="outlined-read-only-input"
                                                 size="small"
@@ -231,8 +222,6 @@ sample page    </button>
 
                             </Grid>
                         </Grid>
-                    </Grid>
-                    <Grid item md={1}></Grid>
                 </Grid>
             </Container>
 

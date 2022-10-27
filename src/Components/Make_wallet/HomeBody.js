@@ -293,8 +293,8 @@ const HomeBody = (props) => {
                 <Grid container
                     item
                     className="menu-icons">
-                    <Grid item lg={4} ></Grid>
-                    <Grid item lg={2} xs={6}>
+                    <Grid item lg={3} ></Grid>
+                    <Grid item lg={3} xs={6}>
                         {/* <Link to={`${config.baseUrl}Receive`} > */}
                         <ThemeProvider theme={theme} >
                             <IconButton variant="contained" onClick={handleOpen}>
@@ -307,7 +307,7 @@ const HomeBody = (props) => {
                             Receive
                         </Typography>
                     </Grid>
-                    <Grid item lg={2} xs={6}>
+                    <Grid item lg={3} xs={6}>
                         {/* <Link to={`${config.baseUrl}sendTransaction`}> */}
                         <ThemeProvider theme={theme} >
                             <IconButton variant="contained" onClick={handleOpen2}>
@@ -320,7 +320,7 @@ const HomeBody = (props) => {
                             Send
                         </Typography>
                     </Grid>
-                    <Grid item lg={4}></Grid>
+                    <Grid item lg={3}></Grid>
                 </Grid>
                 <Grid item container
                     justifyContent="center"

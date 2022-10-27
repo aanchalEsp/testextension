@@ -15,13 +15,13 @@ const MainHeader = (props) => {
               <Grid container item   className={"header"} sx={{
                         backgroundColor: '#040c12'
                     }}>
-                    <Grid item md={6} display={"flex"} >
+                    <Grid item md={8} display={"flex"} >
                    <img src={logo} />
                         <Typography variant="h4" component="h3" >
                             Little Lambo
                         </Typography>
                     </Grid>
-                    <Grid item md={6} mt={1}>
+                    <Grid item md={4} mt={1}>
                         <SideHeader  sideBarFunCall={siderBarFun}/>
                     </Grid>
                 </Grid>
