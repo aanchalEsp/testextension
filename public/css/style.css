@@ -37,11 +37,12 @@ body a{
     justify-content: center;
 }
 button.logout {
-    margin-bottom: 12px;
+    margin-bottom: 0;
     background: #fbbd18;
     color: #000;
     font-family: 'Bakbak One';
-    margin-right: 25px;
+    margin-top: 14px;
+    float: right;
 }
 .process{
     margin:0px 10px;
@@ -67,6 +68,7 @@ button.logout:hover {
 .header h3 {
     font-family: 'Bakbak One';
     padding: 10px;
+    font-size: 30px;
 }
 .side-menu div#demo-simple-select{
     padding: 15px 15px 10px 15px;
@@ -362,4 +364,11 @@ padding: 15px;
 .trans-left .status-text p span{
     font-weight: bold;
    margin-right: 10px;
+}
+.text-area textarea{
+    width: 100%!important;
+    overflow-x: hidden;
+}
+.full-tabs button {
+    width: 50%!important;
 }

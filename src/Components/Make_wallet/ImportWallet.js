@@ -14,13 +14,13 @@ import {
     Router,
     getCurrent,
     getComponentStack,
-  } from 'react-chrome-extension-router';
-  import Home from './Home';
+} from 'react-chrome-extension-router';
+import Home from './Home';
 import { importWAllet } from '../Action/action';
 import toast, { Toaster } from 'react-hot-toast';
 import Cookies from 'js-cookie'
 import Login from './login';
-const message="msg"
+const message = "msg"
 
 const ImportWallet = () => {
     const [loader, setLoader] = useState(false)
@@ -43,11 +43,11 @@ const ImportWallet = () => {
     const [age, setAge] = React.useState('');
     const [form, setForm] = useState("");
     const mnemonic = (Object.values(form))
-    const matchKey=[mnemonic]
+    const matchKey = [mnemonic]
 
     const userId = localStorage.getItem('UserId');
     console.log(userId)
- 
+
     const inputHandler = async (e) => {
         const { name, value } = e.target
         setForm((old) => {
@@ -77,29 +77,29 @@ const ImportWallet = () => {
 
     const SubmitForm = async (e) => {
         let data = { mnemonic: mnemonic, userId: userId }
-        console.log(mnemonic,">>>")
+        console.log(mnemonic, ">>>")
 
-       let x=mnemonic.toString()
-       let y=x.split(",")
+        let x = mnemonic.toString()
+        let y = x.split(",")
 
-console.log(y.length,"xx")
+        console.log(y.length, "xx")
         setLoader(true)
 
-        if(y.length==24){
+        if (y.length == 24) {
             let res = await importWAllet(data);
             setLoader(false)
 
             console.log(res, "imported wallet response")
-            if (res.success==true && res.data.address) {
-    
+            if (res.success == true && res.data.address) {
+
                 localStorage.setItem('address', res.data.address);
                 localStorage.setItem('NAME', 'Account 1');
                 localStorage.setItem('Fingerprint', res.data.FingerPrint);
 
                 console.log("new", res.data.address)
-    
+
             }
-            else if (res.success==true && res.data.wallet_Address) {
+            else if (res.success == true && res.data.wallet_Address) {
                 setLoader(false)
 
                 localStorage.setItem('address', res.data.wallet_Address);
@@ -107,8 +107,8 @@ console.log(y.length,"xx")
                 localStorage.setItem('Fingerprint', res.data.FingerPrint);
 
                 console.log("old", res.data.wallet_Address)
-    
-    
+
+
             }
             if (res.success) {
 
@@ -118,20 +118,20 @@ console.log(y.length,"xx")
                 // toast.success(res.msg);
                 Swal.fire({
                     icon: 'success',
-                    title: res.msg ,
+                    title: res.msg,
                     buttonsStyling: false,
 
                     customClass: {
                         confirmButton: 'example-class' //insert class here
                     }
-                                    
 
-    
-                      })
+
+
+                })
                 setTimeout(() => {
                     goTo(Home, { message })
 
-                //    window.location.href = `${config.baseUrl}home`;
+                    //    window.location.href = `${config.baseUrl}home`;
                 }, 2000);
             } else {
                 setLoader(false)
@@ -139,30 +139,30 @@ console.log(y.length,"xx")
                 // toast.error(res.msg);
                 Swal.fire({
                     icon: 'error',
-                    title: res.msg ,
+                    title: res.msg,
                     buttonsStyling: false,
 
                     customClass: {
                         confirmButton: 'example-class' //insert class here
                     }
-                      })
+                })
             }
-    
+
         }
-        else{
+        else {
             Swal.fire({
                 icon: 'error',
-                title: "24 words Phrase Required" ,
+                title: "24 words Phrase Required",
                 buttonsStyling: false,
 
                 customClass: {
                     confirmButton: 'example-class' //insert class here
                 }
 
-                  })
+            })
             setLoader(false)
         }
-   
+
 
     }
 
@@ -184,106 +184,104 @@ console.log(y.length,"xx")
                 <Box sx={{ display: 'flex', marginLeft: '700px', marginTop: "330px" }}>
                     <CircularProgress /><p style={{ color: "blue" }}>Processeing...</p>
                 </Box> : */}
-                <Container>
-                    <Grid container item my={3} className="import-wallet">
-                        <Grid item xs={12}>
-                            <Typography variant='h3' component="h3" >
-                                Import a wallet with Secret Recovery Phrase
-                            </Typography>
-                            <Typography sx={{ fontSize: 16, margin: "20px 0" }} gutterBottom>
-                                Only the first account on this wallet will auto load. After completing this process, to add additional accounts, click the drop down menu, then select Create Account.
-                            </Typography>
-                            <Grid item container>
-                                <Grid item xs={6}>
-                                    <Typography variant='h6' component="h6" sx={{ marginTop: "10px" }}>
-                                        Secret Recovery Phrase
-                                    </Typography>
-                                </Grid>
-                                <Grid item xs={6}>
-                                    <Box >
-                                        <FormControl fullWidth>
-                                            <InputLabel id="demo-simple-select-label">I have a 24-word phrase</InputLabel>
-                                            <Select
-                                                labelId="demo-simple-select-label"
-                                                id="demo-simple-select"
-                                                value={age}
-                                                label="I have a 24-word phrase"
-                                                onChange={handleChange}
-                                                className='select-phrase'
-                                            >
-                                                <MenuItem value={10}>I have a 24-word phrase</MenuItem>
-                                                {/* <MenuItem value={20}>I have a 16-word phrase</MenuItem>
-                                            <MenuItem value={30}>I have a 178-word phrase</MenuItem> */}
-                                            </Select>
-                                        </FormControl>
-                                    </Box>
-                                </Grid>
+            <Container>
+                <Grid container item my={3} className="import-wallet">
+                    <Grid item xs={12}>
+                        <Typography variant='h3' component="h3" >
+                            Import a wallet with Secret Recovery Phrase
+                        </Typography>
+                        <Typography sx={{ fontSize: 16, margin: "20px 0" }} gutterBottom>
+                            Only the first account on this wallet will auto load. After completing this process, to add additional accounts, click the drop down menu, then select Create Account.
+                        </Typography>
+                        <Grid item container>
+                            <Grid item xs={6}>
+                                <Typography variant='h6' component="h6" sx={{ marginTop: "10px" }}>
+                                    Secret Recovery Phrase
+                                </Typography>
                             </Grid>
-                            <Grid item container my={3} spacing={3} className="private-key">
-                                <Grid item sm={4}>
-
+                            <Grid item xs={6}>
+                                <Box >
+                                    <FormControl fullWidth>
+                                        <InputLabel id="demo-simple-select-label">I have a 24-word phrase</InputLabel>
+                                        <Select
+                                            labelId="demo-simple-select-label"
+                                            id="demo-simple-select"
+                                            value={age}
+                                            label="I have a 24-word phrase"
+                                            onChange={handleChange}
+                                            className='select-phrase'
+                                        >
+                                            <MenuItem value={10}>I have a 24-word phrase</MenuItem>
+                                            {/* <MenuItem value={20}>I have a 16-word phrase</MenuItem>
+                                            <MenuItem value={30}>I have a 178-word phrase</MenuItem> */}
+                                        </Select>
+                                    </FormControl>
+                                </Box>
+                            </Grid>
+                        </Grid>
+                        <Grid item  md={12}  className="private-key">
+                                <div className='text-area' style={{marginTop:"15px"}}>
                                     <TextareaAutosize
                                         maxRows={20}
                                         aria-label="maximum height"
                                         placeholder="Paste Your Already existing Secret Phrase here... "
                                         onChange={inputHandler}
                                         name='form'
-                                        style={{ width: '100%', height: 250 ,overflow:"hidden"}}
+                                        style={{ width: '90%', height: 250, overflowX: "hidden" }}
                                     />
+                                </div>
+                                {/* 1. <TextField id="outlined-basic"  style={{height:"100px"}} autocomplete="off" variant="outlined" onChange={inputHandler} name="one" value={form.one} /> */}
+                        </Grid>
 
-                                    {/* 1. <TextField id="outlined-basic"  style={{height:"100px"}} autocomplete="off" variant="outlined" onChange={inputHandler} name="one" value={form.one} /> */}
-                                </Grid>
-                            </Grid>
-                        
-                            <Grid container item mt={5} className="private-password">
-                                <Grid container item md={7} rowSpacing={2}>
+                        <Grid container item mt={5} className="private-password">
+                            <Grid container item md={7} rowSpacing={2}>
                                 <Grid item xs={6}>
-                                        <ThemeProvider theme={theme} >
-                                            {/* <Link to={`${config.baseUrl}select-wallet/` + userId}> */}
-                                                {/* <Button href={`${config.baseUrl}select-wallet/`+userId} style={{marginLeft:"10px"}} onClick={SubmitForm} variant="contained" color="secondary" size="large" className='create-btn'>
+                                    <ThemeProvider theme={theme} >
+                                        {/* <Link to={`${config.baseUrl}select-wallet/` + userId}> */}
+                                        {/* <Button href={`${config.baseUrl}select-wallet/`+userId} style={{marginLeft:"10px"}} onClick={SubmitForm} variant="contained" color="secondary" size="large" className='create-btn'>
                                             Back
                                         </Button> */}
-                                          <Link onClick={() => goBack()}>
-                                                <Button  variant="contained" color="secondary" size="large" className='create-btn'>
-                                              Back
-                                                </Button>
-                                                </Link>   
+                                        <Link onClick={() => goBack()}>
+                                            <Button variant="contained" color="secondary" size="large" className='create-btn'>
+                                                Back
+                                            </Button>
+                                        </Link>
 
-                                            {/* </Link> */}
-                                        </ThemeProvider>
+                                        {/* </Link> */}
+                                    </ThemeProvider>
 
-                                    </Grid>
-                                    <Grid item xs={6}>
-                                        {/* <Link to={`${config.baseUrl}home`} > */}
-                                        <ThemeProvider theme={theme} >
-                                     {loader?   <Button style={{ marginLeft: "10px" }} onClick={SubmitForm} variant="contained" color="secondary" size="large" className='create-btn loader'>
-                                        <CircularProgress className='process'/>Processeing...
+                                </Grid>
+                                <Grid item xs={6}>
+                                    {/* <Link to={`${config.baseUrl}home`} > */}
+                                    <ThemeProvider theme={theme} >
+                                        {loader ? <Button style={{ marginLeft: "10px" }} onClick={SubmitForm} variant="contained" color="secondary" size="large" className='create-btn loader'>
+                                            <CircularProgress className='process' />Processeing...
 
-                                            </Button>:
+                                        </Button> :
 
                                             <Button style={{ marginLeft: "10px" }} onClick={SubmitForm} variant="contained" color="secondary" size="large" className='create-btn'>
                                                 Import
                                             </Button>
-}
-                                            {/* <Button variant="contained"   color="secondary" size="large" className='create-btn'>
+                                        }
+                                        {/* <Button variant="contained"   color="secondary" size="large" className='create-btn'>
                                           Import 
                                         </Button>
                                         */}
 
-                                        </ThemeProvider>
-                                        {/* </Link> */}
-
-                                    </Grid>
-
-                                 
+                                    </ThemeProvider>
+                                    {/* </Link> */}
 
                                 </Grid>
+
+
+
                             </Grid>
                         </Grid>
                     </Grid>
+                </Grid>
 
-                </Container>
-            
+            </Container>
+
         </>
     )
 }
